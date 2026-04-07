@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light dark;
+}
+
+body {
+  font-family: "Space Grotesk", ui-sans-serif, system-ui;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+body.theme-ocean {
+  --bg: radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.18), transparent 55%),
+    radial-gradient(circle at 85% 10%, rgba(249, 115, 22, 0.18), transparent 50%),
+    #050b1a;
+  --surface: rgba(15, 23, 42, 0.7);
+  --surface-strong: rgba(15, 23, 42, 0.92);
+  --text: #f8fafc;
+  --muted: #94a3b8;
+  --accent: #38bdf8;
+  --accent-2: #f97316;
+  --border: rgba(148, 163, 184, 0.2);
+  --glow: 0 0 30px rgba(56, 189, 248, 0.35);
+}
+
+body.theme-sunset {
+  --bg: radial-gradient(circle at 15% 15%, rgba(251, 113, 133, 0.22), transparent 55%),
+    radial-gradient(circle at 85% 20%, rgba(245, 158, 11, 0.22), transparent 55%),
+    #1a0f0b;
+  --surface: rgba(48, 14, 9, 0.65);
+  --surface-strong: rgba(48, 14, 9, 0.9);
+  --text: #fff7ed;
+  --muted: #fed7aa;
+  --accent: #fb7185;
+  --accent-2: #f59e0b;
+  --border: rgba(253, 186, 116, 0.25);
+  --glow: 0 0 30px rgba(251, 113, 133, 0.4);
+}
+
+.section-title {
+  @apply text-sm uppercase tracking-[0.3em];
+  color: var(--muted);
+}
+
+.glass-card {
+  @apply rounded-3xl border backdrop-blur-md;
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+.gradient-border {
+  position: relative;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: 999px;
+  background: linear-gradient(120deg, var(--accent), var(--accent-2));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.text-shell {
+  color: var(--text) !important;
+}
+
+.text-slate {
+  color: var(--muted) !important;
+}
+
+.bg-ink {
+  background-color: var(--surface-strong) !important;
+}
+
+.shadow-glow {
+  box-shadow: var(--glow) !important;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeUp 0.9s ease-out forwards;
+}
+
+.fade-delay-1 {
+  animation-delay: 0.1s;
+}
+
+.fade-delay-2 {
+  animation-delay: 0.2s;
+}
+
+.fade-delay-3 {
+  animation-delay: 0.3s;
+}
