@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import ThemeToggle from './ThemeToggle.jsx'
+import { profile } from '../data/profile.js'
 
 const links = [
   { to: '/', label: 'Home' },
@@ -26,8 +27,8 @@ export default function Navbar() {
     <nav className="site-nav">
       <div className="nav-inner">
         <NavLink to="/" className="brand-lockup" aria-label="Sailendra Das Tharu home">
-          <span className="brand-mark">SD</span>
-          <span>Sailendra / 01</span>
+          <span className="brand-mark">S</span>
+          <span>Sailendra</span>
         </NavLink>
 
         <div className="desktop-nav">
@@ -44,9 +45,12 @@ export default function Navbar() {
 
         <div className="nav-actions">
           <ThemeToggle />
+          <a className="button-secondary" href={profile.resumeUrl} download>
+            Resume
+          </a>
           <a
             className="button-secondary"
-            href="mailto:sailendradastharu2000@gmail.com"
+            href={`mailto:${profile.email}`}
           >
             Let’s talk <span aria-hidden="true">↗</span>
           </a>
@@ -69,6 +73,14 @@ export default function Navbar() {
               {link.label}
             </NavLink>
           ))}
+          <div className="mobile-menu-actions">
+            <a className="button-secondary" href={profile.resumeUrl} download>
+              Resume
+            </a>
+            <a className="button-primary" href={`mailto:${profile.email}`}>
+              Let’s talk <span aria-hidden="true">↗</span>
+            </a>
+          </div>
         </div>
       )}
     </nav>

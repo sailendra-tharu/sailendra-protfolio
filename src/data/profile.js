@@ -134,6 +134,17 @@ export const projects = [
   },
 ]
 
+export const personalProjects = [
+  {
+    title: 'Full-stack applications',
+    text: 'Built personal applications using Supabase for authentication, database, and real-time backend services.',
+  },
+  {
+    title: 'Payment integration',
+    text: 'Integrated eSewa and Khalti payment gateways to implement online transaction and payment flows.',
+  },
+]
+
 export const references = [
   {
     name: 'Bibash Pokharel',
@@ -158,4 +169,5 @@ export const profile = {
   phone: '+977 9823092963',
   location: 'Kathmandu, Nepal',
   linkedin: 'https://www.linkedin.com/in/sailendra-das-tharu',
+  resumeUrl: '/Sailendra_Das_Tharu_Resume.pdf',
 }

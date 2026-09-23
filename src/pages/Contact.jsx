@@ -23,7 +23,10 @@ export default function Contact() {
             <span className="section-title">Start a conversation</span>
             <h2>Have a project in mind?</h2>
             <p>I’m available for focused frontend work, product UI, performance improvements, and real-time experiences.</p>
-            <a className="button-primary" href={`mailto:${profile.email}`}>Email me <span aria-hidden="true">↗</span></a>
+            <div className="simple-contact-intro-actions">
+              <a className="button-primary" href={`mailto:${profile.email}`}>Email me <span aria-hidden="true">↗</span></a>
+              <a className="button-secondary" href={profile.resumeUrl} download>Download CV</a>
+            </div>
           </SectionReveal>
 
           <SectionReveal className="simple-contact-card">

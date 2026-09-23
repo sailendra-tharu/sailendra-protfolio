@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import PageShell from '../components/PageShell.jsx'
 import PageTransition from '../components/PageTransition.jsx'
 import SectionReveal from '../components/SectionReveal.jsx'
-import { projects } from '../data/profile.js'
+import { personalProjects, projects } from '../data/profile.js'
 import clinicImg from '../assets/project-clinic.svg'
 import calilioImg from '../assets/project-calilio.svg'
 import shramsansarImg from '../assets/project-shramsansar.svg'
@@ -60,9 +60,33 @@ export default function Projects() {
           ))}
         </div>
 
-        <SectionReveal className="projects-pro-note">
-          <span className="section-title">Beyond the case studies</span>
-          <p>Personal work has also included Supabase-backed full-stack applications and payment flows with eSewa and Khalti.</p>
+        <SectionReveal className="home-pro-section">
+          <div className="home-pro-section-head">
+            <div>
+              <p className="section-title">Beyond the case studies</p>
+              <h2>Personal projects</h2>
+            </div>
+            <p>Self-directed work exploring backend-as-a-service tooling and local payment infrastructure.</p>
+          </div>
+          <div className="home-pro-practice-grid" style={{ gridTemplateColumns: 'repeat(2, minmax(0, 1fr))' }}>
+            {personalProjects.map((item, index) => (
+              <motion.article
+                key={item.title}
+                className="home-pro-practice-card"
+                initial={{ opacity: 0, y: 22 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.35 }}
+                transition={{ duration: 0.6, delay: index * 0.08 }}
+                whileHover={{ y: -8 }}
+              >
+                <span>0{index + 1}</span>
+                <div>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </div>
+              </motion.article>
+            ))}
+          </div>
         </SectionReveal>
       </PageShell>
     </PageTransition>
