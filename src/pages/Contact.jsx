@@ -1,80 +1,54 @@
+import { motion } from 'framer-motion'
 import PageShell from '../components/PageShell.jsx'
-import GlassCard from '../components/GlassCard.jsx'
 import PageTransition from '../components/PageTransition.jsx'
 import SectionReveal from '../components/SectionReveal.jsx'
-import { motion } from 'framer-motion'
 import { profile } from '../data/profile.js'
 
-const focus = ['Product UI and dashboards', 'Real-time communication UX', 'Performance optimization']
+const focus = [
+  'Product UI and dashboards',
+  'Real-time communication UX',
+  'Performance and frontend architecture',
+]
 
 export default function Contact() {
   return (
     <PageTransition>
-      <PageShell title="Let’s Build" subtitle="Contact">
-        <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-          <SectionReveal>
-            <GlassCard className="px-6 py-8">
-              <h2 className="text-2xl font-semibold text-shell">Ready to ship your next product?</h2>
-              <p className="mt-3 max-w-xl text-sm text-slate">
-                Reach out for front-end builds, performance improvements, or real-time experiences.
-              </p>
-              <div className="mt-6 flex flex-wrap gap-4">
-                <a
-                  className="gradient-border relative inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium text-shell"
-                  href={`mailto:${profile.email}`}
-                >
-                  Start a Project
-                </a>
-                <a
-                  className="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-shell hover:border-[color:var(--accent)]"
-                  href={`tel:${profile.phone.replace(/\s+/g, '')}`}
-                >
-                  Book a Call
-                </a>
-              </div>
-              <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                {focus.map((item) => (
-                  <motion.div
-                    key={item}
-                    whileHover={{ y: -4 }}
-                    className="rounded-2xl border border-white/10 px-4 py-4"
-                  >
-                    <p className="text-sm text-shell">{item}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </GlassCard>
+      <PageShell
+        title="Let’s work together"
+        subtitle="Contact"
+        description="For product work, frontend challenges, or a thoughtful conversation about what you’re building."
+      >
+        <div className="simple-contact-layout">
+          <SectionReveal className="simple-contact-intro">
+            <span className="section-title">Start a conversation</span>
+            <h2>Have a project in mind?</h2>
+            <p>I’m available for focused frontend work, product UI, performance improvements, and real-time experiences.</p>
+            <a className="button-primary" href={`mailto:${profile.email}`}>Email me <span aria-hidden="true">↗</span></a>
           </SectionReveal>
-          <SectionReveal>
-            <GlassCard className="px-6 py-8">
-              <p className="section-title">Direct</p>
-              <div className="mt-4 space-y-3 text-sm text-shell">
-                <p>
-                  <span className="text-slate">Email:</span>{' '}
-                  <a className="hover:text-[color:var(--accent)]" href={`mailto:${profile.email}`}>
-                    {profile.email}
-                  </a>
-                </p>
-                <p>
-                  <span className="text-slate">Phone:</span>{' '}
-                  <a
-                    className="hover:text-[color:var(--accent)]"
-                    href={`tel:${profile.phone.replace(/\s+/g, '')}`}
-                  >
-                    {profile.phone}
-                  </a>
-                </p>
-                <p>
-                  <span className="text-slate">Location:</span> {profile.location}
-                </p>
-                <p>
-                  <span className="text-slate">LinkedIn:</span>{' '}
-                  <a className="hover:text-[color:var(--accent)]" href={profile.linkedin} target="_blank" rel="noreferrer">
-                    linkedin.com/in/sailendra-das-tharu
-                  </a>
-                </p>
+
+          <SectionReveal className="simple-contact-card">
+            <div className="simple-contact-card-heading">
+              <span className="section-title">Direct contact</span>
+              <span className="simple-contact-status"><i aria-hidden="true" /> Available</span>
+            </div>
+            <div className="simple-contact-details">
+              <div>
+                <span>Email</span>
+                <a href={`mailto:${profile.email}`}>{profile.email}</a>
               </div>
-            </GlassCard>
+              <div>
+                <span>Phone</span>
+                <a href={`tel:${profile.phone.replace(/\s+/g, '')}`}>{profile.phone}</a>
+              </div>
+              <div>
+                <span>Location</span>
+                <strong>{profile.location}</strong>
+              </div>
+              <div>
+                <span>LinkedIn</span>
+                <a href={profile.linkedin} target="_blank" rel="noreferrer">View profile ↗</a>
+              </div>
+            </div>
           </SectionReveal>
         </div>
       </PageShell>

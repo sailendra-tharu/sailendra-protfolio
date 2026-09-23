@@ -13,8 +13,8 @@ import Contact from './pages/Contact.jsx'
 export default function App() {
   const location = useLocation()
   return (
-    <div className="min-h-screen text-shell">
-      <div className="absolute inset-0 -z-10 bg-noise opacity-80" />
+    <div className="site-shell text-shell">
+      <div className="site-grid" aria-hidden="true" />
       <Navbar />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>

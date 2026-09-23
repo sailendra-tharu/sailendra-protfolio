@@ -28,14 +28,12 @@ export default function ThemeToggle() {
       type="button"
       onClick={handleToggle}
       aria-label="Toggle color theme"
-      className="flex items-center gap-3 rounded-full border border-white/20 bg-white/5 px-2 py-1 text-xs uppercase tracking-[0.25em] text-shell"
+      className="theme-toggle"
     >
-      <span className="hidden text-[10px] text-slate sm:inline">{isSunset ? 'Sunset' : 'Ocean'}</span>
-      <span className="relative h-6 w-11 rounded-full border border-white/20 bg-black/30">
+      <span>{isSunset ? 'Night' : 'Day'}</span>
+      <span className="theme-toggle-track">
         <span
-          className={`absolute top-1/2 h-4 w-4 -translate-y-1/2 rounded-full bg-[color:var(--accent)] shadow-glow transition-all ${
-            isSunset ? 'left-6' : 'left-1'
-          }`}
+          className={`theme-toggle-thumb${isSunset ? ' is-sunset' : ''}`}
         />
       </span>
     </button>

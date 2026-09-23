@@ -1,4 +1,5 @@
-import { NavLink } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { NavLink, useLocation } from 'react-router-dom'
 import ThemeToggle from './ThemeToggle.jsx'
 
 const links = [
@@ -12,42 +13,64 @@ const links = [
 ]
 
 export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false)
+  const location = useLocation()
+
+  useEffect(() => {
+    setMenuOpen(false)
+  }, [location.pathname])
+
+  const navClass = ({ isActive }) => `nav-link${isActive ? ' active' : ''}`
+
   return (
-    <nav className="sticky top-0 z-20 border-b border-white/5 bg-[color:var(--surface-strong)]/80 backdrop-blur-lg">
-      <div className="mx-auto flex w-full max-w-8xl items-center justify-between gap-4 px-6 py-4">
-        <div className="flex items-center gap-4">
-          <NavLink
-            to="/"
-            className="text-sm font-semibold uppercase tracking-[0.3em] text-slate hover:text-[color:var(--accent)]"
-          >
-            Portfolio
-          </NavLink>
-        </div>
-        <div className="hidden items-center gap-6 text-xs uppercase tracking-[0.35em] text-slate lg:flex">
+    <nav className="site-nav">
+      <div className="nav-inner">
+        <NavLink to="/" className="brand-lockup" aria-label="Sailendra Das Tharu home">
+          <span className="brand-mark">SD</span>
+          <span>Sailendra / 01</span>
+        </NavLink>
+
+        <div className="desktop-nav">
           {links.map((link) => (
             <NavLink
               key={link.to}
               to={link.to}
-              className={({ isActive }) =>
-                isActive
-                  ? 'text-[color:var(--accent)]'
-                  : 'text-slate hover:text-[color:var(--accent)]'
-              }
+              className={navClass}
             >
               {link.label}
             </NavLink>
           ))}
         </div>
-        <div className="flex items-center gap-4">
+
+        <div className="nav-actions">
           <ThemeToggle />
           <a
-            className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-shell transition hover:border-[color:var(--accent)] hover:bg-white/10"
+            className="button-secondary"
             href="mailto:sailendradastharu2000@gmail.com"
           >
-            Hire Me
+            Let’s talk <span aria-hidden="true">↗</span>
           </a>
+          <button
+            type="button"
+            className="mobile-menu-button"
+            aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            <span aria-hidden="true">{menuOpen ? '×' : '☰'}</span>
+          </button>
         </div>
       </div>
+
+      {menuOpen && (
+        <div className="mobile-menu">
+          {links.map((link) => (
+            <NavLink key={link.to} to={link.to} className={navClass}>
+              {link.label}
+            </NavLink>
+          ))}
+        </div>
+      )}
     </nav>
   )
 }

@@ -1,61 +1,47 @@
+import { motion } from 'framer-motion'
 import PageShell from '../components/PageShell.jsx'
-import GlassCard from '../components/GlassCard.jsx'
 import PageTransition from '../components/PageTransition.jsx'
 import SectionReveal from '../components/SectionReveal.jsx'
-import { motion } from 'framer-motion'
 import { experience, highlights } from '../data/profile.js'
 
 export default function Experience() {
   return (
     <PageTransition>
       <PageShell title="Recent roles & impact" subtitle="Experience">
-        <div className="space-y-6">
         <SectionReveal>
-          <GlassCard className="px-6 py-8">
-          <p className="section-title">Impact Highlights</p>
-          <div className="mt-6 grid gap-4 md:grid-cols-3">
-            {highlights.map((item) => (
-              <motion.div
-                key={item.title}
-                whileHover={{ y: -6 }}
-                className="rounded-2xl border border-white/10 px-4 py-4"
-              >
-                <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-shell">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-sm text-slate">{item.text}</p>
-              </motion.div>
+          <div className="grid gap-4 md:grid-cols-3">
+            {highlights.map((item, index) => (
+              <motion.article key={item.title} className="glass-card data-card" whileHover={{ y: -7 }}>
+                <p className="section-title">0{index + 1}</p>
+                <h3 className="mt-8 text-xl font-semibold tracking-[-0.05em] text-shell">{item.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-slate">{item.text}</p>
+              </motion.article>
             ))}
           </div>
-          </GlassCard>
         </SectionReveal>
 
-        {experience.map((job) => (
-          <SectionReveal key={job.role}>
-            <GlassCard className="px-6 py-8">
-            <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
-              <div>
-                <h3 className="text-2xl font-semibold text-shell">{job.role}</h3>
-                <p className="text-sm text-slate">
-                  {job.company} · {job.location}
-                </p>
-                <p className="mt-2 text-sm text-slate">{job.project}</p>
-              </div>
-              <span className="rounded-full border border-white/10 px-4 py-2 text-xs uppercase tracking-[0.3em] text-slate">
-                {job.period}
-              </span>
-            </div>
-            <ul className="mt-6 space-y-3 text-sm text-slate">
-              {job.points.map((point) => (
-                <li key={point} className="flex gap-3">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-[color:var(--accent)] shadow-glow" />
-                  <span>{point}</span>
-                </li>
-              ))}
-            </ul>
-            </GlassCard>
-          </SectionReveal>
-        ))}
+        <div className="timeline mt-16">
+          {experience.map((job, index) => (
+            <SectionReveal key={`${job.company}-${job.period}`} className="timeline-card">
+              <span className="timeline-dot" aria-hidden="true" />
+              <article className="glass-card data-card">
+                <div className="card-heading">
+                  <div>
+                    <p className="section-title">Chapter 0{index + 1}</p>
+                    <h2 className="mt-4">{job.role}</h2>
+                    <p className="mt-2 text-sm text-slate">{job.company} · {job.location}</p>
+                    <p className="mt-1 text-sm font-semibold text-[color:var(--accent-2)]">{job.project}</p>
+                  </div>
+                  <span className="period-pill">{job.period}</span>
+                </div>
+                <ul className="mt-8 grid gap-4 sm:grid-cols-2">
+                  {job.points.map((point) => (
+                    <motion.li key={point} className="list-check" whileHover={{ x: 5 }}>{point}</motion.li>
+                  ))}
+                </ul>
+              </article>
+            </SectionReveal>
+          ))}
         </div>
       </PageShell>
     </PageTransition>

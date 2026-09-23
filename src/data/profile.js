@@ -1,22 +1,22 @@
 export const highlights = [
   {
-    title: 'Performance & Quality',
-    text: 'Improved Core Web Vitals through code splitting, lazy loading, and careful UI motion tuning.',
+    title: 'Performance & quality',
+    text: 'Improved Core Web Vitals through code splitting, lazy loading, HTTP caching, and careful UI motion tuning.',
   },
   {
-    title: 'Real-Time Experiences',
-    text: 'Built video calling and in-app messaging with Agora SDK for seamless doctor-patient communication.',
+    title: 'Real-time experiences',
+    text: 'Built video calling and in-app messaging with Agora SDK for doctor-patient communication.',
   },
   {
-    title: 'Product Reliability',
-    text: 'Integrated Sentry and Cypress E2E testing to reduce production issues and regressions.',
+    title: 'Production reliability',
+    text: 'Used Sentry and Cypress E2E testing to improve issue visibility and reduce regression risk.',
   },
 ]
 
 export const stats = [
-  { value: '2+ Years', label: 'Professional Experience' },
+  { value: '3+ Years', label: 'Professional Experience' },
   { value: '15+ Tools', label: 'Production-Ready Stack' },
-  { value: '3 Projects', label: 'Major Platforms Delivered' },
+  { value: '3 Products', label: 'Major Platforms Delivered' },
 ]
 
 export const services = [
@@ -25,6 +25,8 @@ export const services = [
   'Real-time video, chat, and collaboration flows',
   'REST and GraphQL API integration',
   'Design systems and reusable component libraries',
+  'Supabase authentication and real-time data',
+  'eSewa and Khalti payment flows',
 ]
 
 export const skillGroups = [
@@ -34,10 +36,14 @@ export const skillGroups = [
   },
   {
     title: 'Backend & APIs',
-    items: ['Node.js', 'Express', 'REST API', 'GraphQL'],
+    items: ['Node.js', 'Express', 'REST API', 'GraphQL', 'Supabase'],
   },
   {
-    title: 'Quality & Tooling',
+    title: 'Payments',
+    items: ['eSewa', 'Khalti', 'Transaction flows'],
+  },
+  {
+    title: 'Quality & tooling',
     items: ['Cypress', 'Sentry', 'Docker', 'Git', 'Agora SDK'],
   },
 ]
@@ -53,6 +59,9 @@ export const skills = [
   'Express',
   'REST API',
   'GraphQL',
+  'Supabase',
+  'eSewa',
+  'Khalti',
   'Git',
   'Docker',
   'Sentry',
@@ -68,28 +77,29 @@ export const experience = [
     period: 'Nov 2024 – Present',
     project: 'Clinical Management System',
     points: [
-      'Built a doctor dashboard in React + TypeScript with interactive charts and real-time patient statistics.',
-      'Reduced initial load time using code splitting and lazy loading, improving Core Web Vitals.',
-      'Implemented real-time video calling and messaging with Agora SDK.',
-      'Integrated Sentry for error tracking and faster production issue resolution.',
-      'Delivered smooth UI animations with Framer Motion and improved perceived performance.',
-      'Built and maintained React Native features for iOS and Android stability.',
-      'Established reusable TypeScript components to reduce duplication.',
+      'Built a doctor dashboard with React and TypeScript featuring interactive charts and real-time patient health statistics.',
+      'Improved initial page-load performance with code splitting and lazy loading, contributing to better Core Web Vitals.',
+      'Developed real-time video calling and in-app messaging with Agora SDK for doctor-patient communication.',
+      'Integrated Sentry for production error tracking and crash reporting to improve issue visibility and resolution.',
+      'Implemented smooth UI animations and transitions with Framer Motion while maintaining responsive interfaces.',
+      'Built and maintained React Native features, resolving UI/UX issues across iOS and Android.',
+      'Developed reusable TypeScript-based components and patterns to improve maintainability.',
     ],
   },
   {
-    role: 'Frontend Engineer',
+    role: 'Software Engineer',
     company: 'Varosa Technology',
     location: 'Kathmandu (Onsite)',
     period: 'Jun 2023 – Oct 2024',
-    project: 'Calilio — SaaS Communication Platform',
+    project: 'Calilio — SaaS Communication Platform + Shramsansar — Job Portal',
     points: [
-      'Built responsive pages with WCAG-aligned accessibility across devices.',
-      'Implemented multi-language (i18n) support for international markets.',
-      'Integrated REST and GraphQL APIs with optimized data fetching and error handling.',
-      'Created reusable React component libraries to speed up development.',
-      'Added Cypress E2E testing to reduce regression bugs.',
-      'Applied caching, code splitting, and lazy loading to reduce bundle size.',
+      'Built responsive application pages from the ground up with consistent usability across screen sizes and devices.',
+      'Implemented internationalization support to enable a multilingual user experience.',
+      'Integrated REST and GraphQL APIs with robust error handling, loading states, and optimized data-fetching patterns.',
+      'Developed reusable React components and shared UI patterns to improve development velocity and consistency.',
+      'Implemented Cypress E2E test coverage to improve feature reliability and reduce regression issues.',
+      'Applied code splitting, lazy loading, and HTTP caching strategies to improve performance and reduce bundle size.',
+      'Built job listing, search, authentication, profile, and role-based admin dashboard flows for Shramsansar.',
     ],
   },
 ]
@@ -97,22 +107,28 @@ export const experience = [
 export const projects = [
   {
     name: 'Clinical Management System',
-    description:
-      'Doctor dashboard, real-time health statistics, video calling, and in-app messaging to improve clinical workflows.',
+    label: 'Healthcare platform · Ananas Solution',
+    role: 'Frontend Engineer',
+    description: 'A doctor dashboard focused on real-time patient visibility and smoother communication between doctors and patients.',
+    details: 'Interactive charts, patient statistics, video calling, messaging, monitoring, and React Native support.',
     tech: ['React', 'TypeScript', 'Agora SDK', 'Sentry', 'Framer Motion'],
-    focus: ['Dashboard UX', 'Real-time communication', 'Monitoring & stability'],
+    focus: ['Dashboard UX', 'Real-time communication', 'Production stability'],
   },
   {
     name: 'Calilio',
-    description:
-      'SaaS communication platform with responsive UI, i18n, API integrations, and E2E tests.',
+    label: 'SaaS communication platform · Varosa Technology',
+    role: 'Software Engineer',
+    description: 'A responsive SaaS communication platform built for reliable everyday workflows across devices and languages.',
+    details: 'Responsive application pages, i18n, API states, shared UI patterns, E2E coverage, and performance work.',
     tech: ['React', 'REST', 'GraphQL', 'Cypress'],
     focus: ['Accessibility', 'Internationalization', 'Test coverage'],
   },
   {
     name: 'Shramsansar (Job Portal)',
-    description:
-      'Job search and listing experience with authentication flows and an admin dashboard.',
+    label: 'Job portal · Varosa Technology',
+    role: 'Software Engineer',
+    description: 'A job search and listing experience with authentication, profile management, and an admin workspace.',
+    details: 'Responsive job listings, filtering, login and registration, profile management, and role-based content tools.',
     tech: ['React', 'Auth', 'Admin Dashboard'],
     focus: ['Search & filters', 'Role-based admin', 'Onboarding flows'],
   },
@@ -137,8 +153,7 @@ export const profile = {
   name: 'Sailendra Das Tharu',
   title: 'Software Engineer',
   subtitle: 'React · TypeScript · React Native',
-  summary:
-    'I am Sailendra Das Tharu, a Software Engineer with 2+ years of professional experience building performant, accessible web and mobile applications using React, TypeScript, and React Native. I focus on real-time features, production monitoring, and pixel-perfect UI, and I enjoy turning complex requirements into smooth, reliable user experiences.',
+  summary: 'Software Engineer with 3+ years of professional experience building web and mobile applications with React, TypeScript, and React Native. I focus on production UI, performance, real-time communication, API integration, accessibility, testing, monitoring, and polished user experiences.',
   email: 'sailendradastharu2000@gmail.com',
   phone: '+977 9823092963',
   location: 'Kathmandu, Nepal',
