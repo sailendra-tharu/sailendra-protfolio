@@ -13,7 +13,7 @@ export default function Experience() {
             {highlights.map((item, index) => (
               <motion.article key={item.title} className="glass-card data-card" whileHover={{ y: -7 }}>
                 <p className="section-title">0{index + 1}</p>
-                <h3 className="mt-8 text-xl font-semibold tracking-[-0.05em] text-shell">{item.title}</h3>
+                <h3 className="mt-8 text-xl font-semibold tracking-[-0.05em] text-shell text-black">{item.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-slate">{item.text}</p>
               </motion.article>
             ))}

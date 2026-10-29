@@ -116,7 +116,7 @@ export const projects = [
   },
   {
     name: 'Calilio',
-    label: 'SaaS communication platform · Varosa Technology',
+    label: 'communication platform · Varosa Technology',
     role: 'Software Engineer',
     description: 'A responsive SaaS communication platform built for reliable everyday workflows across devices and languages.',
     details: 'Responsive application pages, i18n, API states, shared UI patterns, E2E coverage, and performance work.',

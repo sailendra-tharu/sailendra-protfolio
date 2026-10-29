@@ -45,9 +45,6 @@ export default function Navbar() {
 
         <div className="nav-actions">
           <ThemeToggle />
-          <a className="button-secondary" href={profile.resumeUrl} download>
-            Resume
-          </a>
           <a
             className="button-secondary"
             href={`mailto:${profile.email}`}

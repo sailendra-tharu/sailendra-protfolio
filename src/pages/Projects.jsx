@@ -66,7 +66,6 @@ export default function Projects() {
               <p className="section-title">Beyond the case studies</p>
               <h2>Personal projects</h2>
             </div>
-            <p>Self-directed work exploring backend-as-a-service tooling and local payment infrastructure.</p>
           </div>
           <div className="home-pro-practice-grid" style={{ gridTemplateColumns: 'repeat(2, minmax(0, 1fr))' }}>
             {personalProjects.map((item, index) => (
